@@ -12,9 +12,13 @@ class Pages extends Controller
 
   public function index()
   {
+    $posts = $this->postModel->getPosts();
+
     $data = [
       'title' => 'Welcome',
+      'posts' => $posts
     ];
+
     $this->view( 'pages/index', $data );
   }
 
@@ -23,6 +27,7 @@ class Pages extends Controller
     $data = [
       'title' => 'About Us',
     ];
+
     $this->view( 'pages/about', $data );
   }
 }
